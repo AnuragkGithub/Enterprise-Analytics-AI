@@ -1,0 +1,11 @@
+{"messages":[{"role":"user","content":"most utilized tables in databricks"},{"role":"assistant","content":"query_01"}]}
+
+{"messages":[{"role":"user","content":"top used tables"},{"role":"assistant","content":"query_01"}]}
+
+{"messages":[{"role":"user","content":"which tables are used the most"},{"role":"assistant","content":"query_01"}]}
+
+{"messages":[{"role":"user","content":"most used tables in last 30 days"},{"role":"assistant","content":"query_02"}]}
+
+{"messages":[{"role":"user","content":"top tables accessed last month"},{"role":"assistant","content":"query_02"}]}
+
+{"messages":[{"role":"user","content":"most used tables with workspace details"},{"role":"assistant","content":"query_03"}]}

@@ -1,0 +1,12 @@
+{
+ "query_01": [
+  "failed jobs",
+  "job failures",
+  "which jobs failed"
+ ],
+
+ "query_02": [
+  "cluster cpu usage",
+  "highest cpu cluster"
+ ]
+}

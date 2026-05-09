@@ -1,0 +1,36 @@
+{
+  "query_01": {
+    "description": "most utilized tables",
+    "sql": "SELECT source_table_full_name, COUNT(*) AS usage_count FROM table_lineage WHERE source_table_full_name IS NOT NULL GROUP BY source_table_full_name ORDER BY usage_count DESC LIMIT 10"
+  },
+
+  "query_02": {
+    "description": "most utilized tables last 30 days",
+    "sql": "SELECT source_table_full_name, COUNT(*) AS usage_count FROM table_lineage WHERE event_date BETWEEN DATE_SUB(CURRENT_DATE, 29) AND CURRENT_DATE AND source_table_full_name IS NOT NULL GROUP BY source_table_full_name ORDER BY usage_count DESC LIMIT 10"
+  },
+
+  "query_03": {
+    "description": "most utilized tables last 30 days with workspace",
+    "sql": "SELECT tl.source_table_full_name, tl.workspace_id, wl.workspace_name, COUNT(*) AS usage_count FROM table_lineage tl JOIN system.access.workspaces_latest wl ON tl.workspace_id = wl.workspace_id WHERE tl.event_date BETWEEN DATE_SUB(CURRENT_DATE, 29) AND CURRENT_DATE AND tl.source_table_full_name IS NOT NULL AND tl.workspace_id IS NOT NULL GROUP BY tl.source_table_full_name, tl.workspace_id, wl.workspace_name ORDER BY usage_count DESC LIMIT 10"
+  },
+
+  "query_04": {
+    "description": "longest running jobs this week",
+    "sql": "SELECT job_id, run_id, run_name, run_duration_seconds, period_start_time, period_end_time FROM job_run_timeline WHERE run_duration_seconds IS NOT NULL AND period_start_time >= DATE_TRUNC('WEEK', CURRENT_DATE) AND period_start_time < DATE_TRUNC('WEEK', CURRENT_DATE) + INTERVAL 1 WEEK ORDER BY run_duration_seconds DESC LIMIT 10"
+  },
+
+  "query_05": {
+    "description": "jobs failing most frequently",
+    "sql": "SELECT job_id, COUNT(*) AS failure_count FROM job_run_timeline WHERE result_state = 'FAILED' AND period_start_time BETWEEN DATE_SUB(CURRENT_DATE, 29) AND CURRENT_DATE GROUP BY job_id ORDER BY failure_count DESC LIMIT 10"
+  },
+
+  "query_06": {
+    "description": "running workspaces",
+    "sql": "SELECT workspace_id, workspace_name FROM workspaces_latest WHERE status = 'RUNNING' AND workspace_id IS NOT NULL AND status IS NOT NULL"
+  },
+
+  "query_07": {
+    "description": "expensive tables and creators",
+    "sql": "SELECT source_table_full_name, created_by, COUNT(*) AS usage_count FROM table_lineage WHERE source_table_full_name IS NOT NULL AND created_by IS NOT NULL GROUP BY source_table_full_name, created_by ORDER BY usage_count DESC LIMIT 10"
+  }
+}

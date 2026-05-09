@@ -1,0 +1,35 @@
+{
+  "customers": {
+    "columns": {
+      "customer_id": "Unique identifier for customer",
+      "customer_name": "Name of the customer",
+      "country": "Customer country",
+      "signup_date": "Date customer registered"
+    }
+  },
+  "products": {
+    "columns": {
+      "product_id": "Unique identifier for product",
+      "product_name": "Product name",
+      "category": "Product category",
+      "price": "Product price"
+    }
+  },
+  "orders": {
+    "columns": {
+      "order_id": "Unique order identifier",
+      "customer_id": "Customer placing order",
+      "product_id": "Product purchased",
+      "order_date": "Date of order",
+      "amount": "Total order value"
+    }
+  },
+  "payments": {
+    "columns": {
+      "payment_id": "Payment identifier",
+      "order_id": "Associated order",
+      "payment_method": "Method used",
+      "payment_date": "Date of payment"
+    }
+  }
+}

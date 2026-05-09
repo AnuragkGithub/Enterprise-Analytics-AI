@@ -1,0 +1,11 @@
+{
+  "query_01_total_sales": [
+    "total revenue",
+    "overall sales",
+    "company revenue"
+  ],
+  "query_02_sales_by_category": [
+    "sales by category",
+    "revenue per category"
+  ]
+}
